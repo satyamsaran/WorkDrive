@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+   WorkDrive Login Page
+{% endblock %}
+
+{% block content %}
+	<div class="card login-card mt-4">
+	  <div class="card-body">
+		<h2 class="text-center">WorkDrive</h2>
+		<h4 class="text-center mt-3">Login to your account</h4>
+		{% if signupSuccess != '' %}
+		  <div class="alert alert-success" role="alert">
+			{{signupSuccess}}
+		  </div>
+		{% endif %}
+
+		{% if error != '' %}
+		  <div class="alert alert-danger" role="alert">
+			{{error}}
+		  </div>
+		{% endif %}    
+		 <form method="post" action="/check_login">
+		  <div class="form-group mt-4">
+			<label for="email">Email address</label>
+			<input type="email" class="form-control" id="email5" name="email5" aria-describedby="emailHelp">
+			<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group mt-4">
+			<label for="password">Password</label>
+			<input type="password" class="form-control" id="password5" name="password5">
+		  </div>
+		  <div class="text-center mt-4">
+		  <button type="submit" class="btn btn-primary ">Login</button>
+		  </div>
+		</form>
+		<div class="mt-5 text-center">
+			Don't have an account? <a href="/signup">Signup here</a>
+		</div>	
+	  </div>
+	 </div>
+{% endblock %}
